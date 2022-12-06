@@ -1,0 +1,11 @@
+version: 3.7
+services:
+  db:
+    container_name: db
+    image: postgres
+    volumes:
+      - ./pg-init-scripts:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=spot-backend
+      - POSTGRES_PASSWORD=spot-backend
+      - POSTGRES_MULTIPLE_DATABASES=spot-backend,keycloak,spot-users
